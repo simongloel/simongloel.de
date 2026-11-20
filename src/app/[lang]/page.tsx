@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { BlogCard } from "@/components/blog-card";
 import { ProjectCard } from "@/components/project-card";
+import { MiniCv } from "@/components/mini-cv";
 import { dict, type Lang } from "@/lib/i18n";
 import { formatDate, getPosts } from "@/lib/posts";
 import { site } from "@/lib/site";
@@ -100,6 +101,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
           <Link href={`/${lang}/cv/`} className="text-muted hover:text-ink">CV</Link>
         </div>
       </section>
+
+      <MiniCv lang={lang} title={t.cvShort} more={t.fullCv} />
 
       <section className="mt-20">
         <h2 className="text-sm font-medium uppercase tracking-wide text-muted">{t.writing}</h2>

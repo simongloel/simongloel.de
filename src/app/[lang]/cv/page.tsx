@@ -57,13 +57,13 @@ const cv = {
         title: "Software Engineer, Technical Lead",
         place: "BMW Group, Regensburg",
         when: "seit Jan. 2024",
-        text: "Technische Leitung für Software in der Produktion, gebaut in Java und TypeScript, betrieben auf Kubernetes in Azure.",
+        text: "Technische Leitung für Software in der Produktion. Gebaut mit Java und TypeScript, betrieben auf Kubernetes in Azure.",
       },
       {
         title: "Ausbildung zum Fachinformatiker für Anwendungsentwicklung",
         place: "BMW Group, Regensburg",
         when: "Sep. 2021 - Jan. 2024",
-        text: "Duale Ausbildung, auf zweieinhalb Jahre verkürzt. Interne Web-Anwendungen für Produktion und Fachbereiche gebaut.",
+        text: "Duale Ausbildung, auf zweieinhalb Jahre verkürzt. Dabei interne Webanwendungen für die Produktion und die Fachbereiche gebaut.",
       },
     ],
     projects: [
@@ -71,7 +71,7 @@ const cv = {
         title: "blitz.cloud",
         place: "Gründer, BlitzWorks UG",
         when: "seit Juni 2025",
-        text: "Hosting-Plattform für Apps, Datenbanken und Websites auf Kubernetes bei Hetzner, jede App in ihrer eigenen gVisor-Sandbox. Mit MCP-Server für KI-Assistenten und einer Build-Pipeline, die fehlende Dockerfiles selbst schreibt. Rund 3.500 Nutzer.",
+        text: "Hosting-Plattform für Apps, Datenbanken und Websites auf Kubernetes bei Hetzner, jede App in ihrer eigenen gVisor-Sandbox. Mit eigenem MCP-Server für KI-Assistenten und einer Build-Pipeline, die fehlende Dockerfiles selbst schreibt. Rund 3.500 Nutzer.",
       },
     ],
     qualifications: [

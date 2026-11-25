@@ -16,8 +16,8 @@ const intro = {
   ],
   de: [
     "Ich bin Softwareentwickler in Regensburg. Bei der BMW Group arbeite ich als Technical Lead an Software für die Produktion.",
-    "In meiner freien Zeit baue ich {blitz}, eine Hosting-Plattform mit Servern in der EU. Du gibst ihr ein GitHub-Repository, ein Docker-Image oder einen Ordner mit HTML und bekommst eine HTTPS-Adresse zurück. Diese Seite läuft auch darauf.",
-    "Hier schreibe ich über den Betrieb von Software, meistens über das, was ich beim Bau von blitz.cloud lerne.",
+    "Nebenbei baue ich {blitz}, eine Hosting-Plattform mit Servern in der EU. Du gibst ihr ein GitHub-Repository, ein Docker-Image oder einfach einen Ordner mit HTML und bekommst eine HTTPS-Adresse zurück. Auch diese Seite läuft darauf.",
+    "Hier schreibe ich darüber, wie man Software betreibt. Meistens geht es um das, was ich beim Bauen von blitz.cloud lerne.",
   ],
 };
 
@@ -28,9 +28,9 @@ const projects = {
     "Salary calculator for the IG Metall pay agreements. The payroll tax matches the official BMF test cases to the cent.",
   ],
   de: [
-    "Hosting für Apps, Datenbanken und Websites auf Servern in der EU. Kubernetes bei Hetzner, jede App in ihrer eigenen gVisor-Sandbox.",
-    "Leitplanken für LLM-Antworten in Java und Quarkus. Eine Antwort, die nicht zum Schema passt, geht zurück an das Modell, bis sie passt.",
-    "Gehaltsrechner für die Tarife der IG Metall. Die Lohnsteuer stimmt auf den Cent mit den offiziellen Prüffällen des BMF überein.",
+    "Hosting für Apps, Datenbanken und Websites auf Servern in der EU. Läuft auf Kubernetes bei Hetzner, jede App in ihrer eigenen gVisor-Sandbox.",
+    "Leitplanken für LLM-Antworten in Java und Quarkus. Passt eine Antwort nicht zum Schema, geht sie so lange ans Modell zurück, bis sie passt.",
+    "Gehaltsrechner für die Tarife der IG Metall. Die Lohnsteuer stimmt auf den Cent genau mit den offiziellen Prüffällen des BMF überein.",
   ],
 };
 

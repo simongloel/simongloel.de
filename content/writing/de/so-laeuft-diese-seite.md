@@ -1,22 +1,22 @@
 ---
 title: So läuft diese Seite
-description: Ein statischer Next.js-Export, ein Dockerfile in zwei Stufen und meine eigene Hosting-Plattform. Das ganze Setup in fünf Minuten Lesezeit.
+description: Ein statischer Next.js-Export, ein Dockerfile mit zwei Stufen und meine eigene Hosting-Plattform. Das ganze Setup, in fünf Minuten gelesen.
 order: 1
 key: how-this-site-runs
 date: 2026-11-20
 ---
 
-Diese Seite ist ein kleines Next.js-Projekt. Der Code liegt öffentlich auf [github.com/simongloel/simongloel.de](https://github.com/simongloel/simongloel.de) und läuft auf [blitz.cloud](https://blitz.cloud), der Hosting-Plattform, die ich baue. Ich wollte eine Seite, auf der ich schreiben kann, ohne an Server zu denken. So sieht das aus.
+Diese Seite ist ein kleines Next.js-Projekt. Den Code findest du öffentlich auf [github.com/simongloel/simongloel.de](https://github.com/simongloel/simongloel.de), und laufen tut sie auf [blitz.cloud](https://blitz.cloud), der Hosting-Plattform, die ich baue. Ich wollte eine Seite, auf der ich einfach schreiben kann, ohne mich um Server zu kümmern. Das ist dabei rausgekommen.
 
 ## Die Seite
 
-Next.js mit `output: "export"` macht beim Build aus der ganzen Seite einfache HTML-Dateien. Die Artikel sind Markdown-Dateien in `content/writing`, eine pro Sprache. Die Seite liest sie mit `gray-matter` und `marked`, und beim Aufruf läuft auf dem Server nichts.
+Mit `output: "export"` macht Next.js beim Build aus der ganzen Seite normale HTML-Dateien. Die Artikel sind Markdown-Dateien in `content/writing`, eine pro Sprache. Gelesen werden sie mit `gray-matter` und `marked`. Wenn du die Seite aufrufst, läuft auf dem Server also gar nichts mehr.
 
-Es gibt keine Datenbank, kein CMS und kein Tracking. Ein neuer Artikel ist eine neue Datei und ein Push.
+Es gibt keine Datenbank, kein CMS und kein Tracking. Ein neuer Artikel ist eine neue Datei und ein Push, mehr nicht.
 
 ## Das Dockerfile
 
-blitz.cloud schreibt ein Dockerfile selbst, wenn ein Repository keins hat. Für eine so kleine Seite habe ich die zehn Zeilen aber lieber im Repo:
+Hat ein Repository kein Dockerfile, schreibt blitz.cloud selbst eins. Bei so einer kleinen Seite hab ich die zehn Zeilen aber lieber selbst im Repo:
 
 ```dockerfile
 FROM node:22-alpine AS build
@@ -32,20 +32,20 @@ COPY --from=build /app/out /usr/share/nginx/html
 EXPOSE 8080
 ```
 
-Die erste Stufe baut die Seite, die zweite enthält nur nginx und den Ordner `out`. Im Image, das am Ende läuft, ist gar kein Node.js mehr. `EXPOSE 8080` sagt blitz.cloud, auf welchen Port der Verkehr gehen soll.
+Die erste Stufe baut die Seite, in der zweiten landen nur nginx und der Ordner `out`. Im fertigen Image steckt also gar kein Node.js mehr. Über `EXPOSE 8080` weiß blitz.cloud, an welchen Port die Anfragen gehen.
 
 ## Sprache
 
-nginx schaut beim ersten Besuch auf `/` in den `Accept-Language`-Header des Browsers und leitet auf `/de/` oder `/en/` weiter. Wer oben umschaltet, bekommt ein Cookie mit der Wahl, und das gewinnt beim nächsten Mal.
+Beim ersten Besuch auf `/` schaut nginx in den `Accept-Language`-Header deines Browsers und schickt dich auf `/de/` oder `/en/`. Schaltest du oben die Sprache um, merkt sich ein Cookie deine Wahl, und die gilt dann beim nächsten Mal.
 
 ## Deployen
 
-Die App ist aus dem GitHub-Repository angelegt. Jeder Push auf `main` baut ein neues Image und stellt es online. Die alte Version läuft weiter, bis die neue antwortet. Ein kaputter Build nimmt die Seite also nicht vom Netz.
+Die App hab ich direkt aus dem GitHub-Repository angelegt. Jeder Push auf `main` baut ein neues Image und stellt es online. Die alte Version läuft so lange weiter, bis die neue antwortet. Ein kaputter Build nimmt die Seite also nicht vom Netz.
 
 ## Die Domain
 
-`simongloel.de` liegt bei Cloudflare. Wenn du bei blitz.cloud eine eigene Domain hinzufügst, bekommst du zwei DNS-Einträge: einen TXT-Eintrag, der zeigt, dass dir die Domain gehört, und einen CNAME, der den Namen auf blitz.cloud zeigen lässt. Sobald beide im öffentlichen DNS standen, war die Domain aktiv, das Zertifikat kam mit.
+`simongloel.de` liegt bei Cloudflare. Wenn du bei blitz.cloud eine eigene Domain hinzufügst, bekommst du zwei DNS-Einträge: einen TXT-Eintrag als Nachweis, dass dir die Domain gehört, und einen CNAME, der auf blitz.cloud zeigt. Sobald beide im öffentlichen DNS zu sehen waren, war die Domain aktiv, und das Zertifikat kam gleich mit.
 
 ## Was ich ändern würde
 
-Erstmal nichts. Wenn ich irgendwann Kommentare oder einen Newsletter will, ist das eine Datenbank und eine kleine API, und dasselbe Repository kann dahin wachsen, ohne umzuziehen.
+Erst mal nichts. Will ich irgendwann Kommentare oder einen Newsletter, sind das halt eine Datenbank und eine kleine API. Dafür kann dasselbe Repository einfach weiterwachsen, umziehen muss ich nicht.

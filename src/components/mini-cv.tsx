@@ -27,7 +27,7 @@ const stations: Record<Lang, Station[]> = {
       href: "https://www.bmwgroup.com",
       roles: [
         { title: "Software Engineer, Technical Lead", period: "seit 2024" },
-        { title: "Ausbildung, Anwendungsentwicklung", period: "2021 - 2024" },
+        { title: "Ausbildung zum Fachinformatiker", period: "2021 - 2024" },
       ],
     },
     { org: "OTH Regensburg", logo: "/images/logos/oth.svg", dark: true, href: "https://www.oth-regensburg.de", roles: [{ title: "B.Sc. Wirtschaftsinformatik", period: "voraussichtlich 2030" }] },
